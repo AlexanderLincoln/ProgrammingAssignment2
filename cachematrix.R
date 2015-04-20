@@ -1,13 +1,13 @@
 ## This is a pair of functions that cache the inverse of a matrix
-## The first function caches the matrix and solves. The second returns it
-##  if it has been solved already.
+## The first function caches the matrix and its inverse. The second returns it
+##  if it has been solved already or solves if the solution is not solved.
 
-## Write a short comment describing this function
+
 ## This function creates a special "matrix" object that can cache its inverse
 
 makeCacheMatrix <- function(m = matrix()) {
     
-## set inverse to null when called
+## set inverse to null when called(original matrix could change)
     inv <- NULL
     
 ## stores original matrix
@@ -40,6 +40,7 @@ cacheSolve <- function(x, ...) {
 ## get cached inverse matrix from x()        
         inv <- x$getinv()
         
+## return the inverse if already cached.
     if(!is.null(inv)) {
         message("getting cached data")
         return(inv)
